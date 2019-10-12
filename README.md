@@ -6,6 +6,7 @@ These small projects aim to give you a starting point for your Spring based APIs
  - Java
  - Spring boot
  - Docker
+ - Docker compose
  - And a DB. Currently Postgres, Mysql and MongoDB are supported 
  
  
