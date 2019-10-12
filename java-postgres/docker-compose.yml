@@ -18,7 +18,6 @@ services:
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
     restart: unless-stopped
-  # APP*****************************************
   spring_postgres:
     image: starterpack/spring-boot-postgres:latest
     environment:

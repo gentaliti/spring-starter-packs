@@ -20,7 +20,6 @@ services:
       - MYSQL_PORT=3306
       - ON_CREATE_DB="java_starterpack"
     restart: unless-stopped
-  # APP*****************************************
   spring_mysql:
     image: starterpack/spring-boot-mysql:latest
     environment:

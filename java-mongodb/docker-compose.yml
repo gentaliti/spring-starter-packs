@@ -13,11 +13,10 @@ services:
     networks:
       - local
     command: mongod --smallfiles --logpath=/dev/null # --quiet
-  # APP*****************************************
   spring_mongodb:
     image: starterpack/spring-boot-mongodb:latest
     environment:
-      - MONGODB_DB_NAME=addressbook
+      - MONGODB_DB_NAME=document
     networks:
       - local
     container_name: spring_mongodb
