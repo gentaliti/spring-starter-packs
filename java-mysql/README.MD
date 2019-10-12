@@ -1,4 +1,4 @@
-#Java, Spring and Mysql starter pack
+# Spring Mysql - Starter Pack
 
 ## Requirements
 
