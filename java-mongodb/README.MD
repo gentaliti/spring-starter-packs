@@ -1,4 +1,4 @@
-# Java Spring starter pack
+# Spring MongoDB - Starter Pack
 
 ### Requirements
 
