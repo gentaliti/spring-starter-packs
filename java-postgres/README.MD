@@ -1,11 +1,11 @@
-#Java, Spring and Postgres starter pack
+# Spring Postgres - Starter Pack
 
 ## Requirements
 
 For building and running the application you need:
 
-JDK >= 1.8
-Postgres
+- JDK >= 1.8
+- Docker
 
 ## Building and Running
 
