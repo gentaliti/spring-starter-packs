@@ -1,13 +1,13 @@
-#Java Spring starter pack
+# Java Spring starter pack
 
-## Requirements
+### Requirements
 
 For building and running the application you need:
 
-JDK 1.8
-Docker
+- JDK 1.8
+- Docker
 
-## Building and Running
+### Building and Running
 
 ```bash
 mvn clean install
