@@ -1,0 +1,49 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:latest
+    networks:
+      - local
+    container_name: mysql
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=java_starterpack
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+      - ON_CREATE_DB="java_starterpack"
+    restart: unless-stopped
+  # APP*****************************************
+  spring_mysql:
+    image: starterpack/spring-boot-mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=java_starterpack
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+    networks:
+      - local
+    container_name: spring_mysql
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    links:
+      - mysql
+volumes:
+  db-data:
+networks:
+  local:
+    driver: bridge

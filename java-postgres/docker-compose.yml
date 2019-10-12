@@ -1,0 +1,46 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:11
+    networks:
+      - local
+    container_name: postgres
+    volumes:
+      - postgres-dir:/var/lib/postgresql/data
+    expose:
+      - 5432
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=java_starterpack
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+    restart: unless-stopped
+  # APP*****************************************
+  spring_postgres:
+    image: starterpack/spring-boot-postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=java_starterpack
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+    networks:
+      - local
+    container_name: spring_postgres
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    links:
+      - postgres
+volumes:
+  postgres-dir:
+networks:
+  local:
+    driver: bridge
